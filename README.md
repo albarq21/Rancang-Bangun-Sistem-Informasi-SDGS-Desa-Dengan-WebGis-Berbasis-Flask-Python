@@ -6,7 +6,7 @@ Lebih mudah memakai Github Desktop. Link Download: [GitHub Desktop](https://desk
 
 ## 2. Membuat Virtual Environment
 	
-Setelah Clone, masuk ke Folder 'STP'. Setelah berada didalam folder 'STP', masukkan syntax berikut ke terminal.
+Setelah Clone, masuk ke Folder 'Sdgs Desa'. Setelah berada didalam folder 'Sdgs Desa', masukkan syntax berikut ke terminal.
 
 Membuat virtual environment:
  ```
@@ -36,4 +36,4 @@ flask run
 ```
 	
 Membuka situs website:
-[STP - Universitas Hasanuddin](http://127.0.0.1:5000/)
+[Sdgs Desa](http://127.0.0.1:5000/)
