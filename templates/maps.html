@@ -1,0 +1,99 @@
+{% extends 'base-maps.html' %}
+
+{% block body %}
+    <div class="nav">
+        <form action="{{ url_for('homepage.gis') }}" method="POST" id="formsearch">
+            <div id="nav-search" class="nav-search">
+                <button id="sidebar-btn" class="sidebar-btn"><div></div></button>                
+            </div>
+        </form>
+        <div>
+            <div id="view-sidebar" class="view-sidebar"></div>
+            <div id="sidebar" class="sidebar">
+                <div class="brand-link">               
+                    <span class="brand-text font-weight-light maps">WEBGIS SDGS DESA</span>
+                </div>
+                <button id="close-btn" class="close-btn"></button>
+                                
+                <div class="menu">
+                    <li>
+                        <button id="beranda">
+                            <div class="home-btn"></div>
+                            <span id="label-beranda">Beranda</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button id="dashboard">
+                            <div class="dashboard-btn"></div>
+                            <span id="label-dashboard">Dashboard</span>
+                        </button>
+                    </li>
+                    
+                </div>
+            </div>
+        </div>
+        
+            <div id="overlay-info" class="overlay overlay-info ">
+                <div id="title-overlay-info" class="title-overlay">
+                    <div class="info-icon"></div><span class="title">Info Kuisioner Individu</span><div id="minimize-info" class="minimize"></div>
+                </div>
+                <div class="content-overlay">
+                    <div class="content-overlay-div">
+                        
+                            <div class="content-location">
+                                <p class="content-name">Total Data Kuisioner Individu {{totaldatkus}} Data</p>                           
+                                <p class="content-info">Desa Tanpa Kemiskinan </p>                                                         
+                                <p class="content-info">Diatas Kemiskinan {{Plus}} Data</p>
+                                <p class="content-info">Dibawah Kemiskinan {{Minus}} Data</p>
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="overlay-layers" class="overlay overlay-layers ">
+                <div id="title-overlay-layers" class="title-overlay">
+                    <div class="layers-icon"></div><span class="title">Info SHP</span><div id="minimize-layers" class="minimize"></div>
+                </div>
+                <div class="content-overlay">
+                    <div class="content-overlay-div">
+                                          
+                                <div>
+                                    <p class="content">Provinsi {{datapet.Provinsi}}</p>
+                                    <p class="content">Kota / Kabupaten {{datapet.KotaKabupaten}} </p>
+                                    <p class="content">Kecamatan {{datapet.Kecamatan}} </p>
+                                    <p class="content">Desa {{datapet.Desa}} </p>
+                                </div>
+                                                     
+                    </div>
+                </div>
+            </div>
+
+            <div id="overlay-sdgs" class="overlay overlay-sdgs " style="left: 1091px; top: 3px;">
+                <div id="title-overlay-sdgs" class="title-overlay">
+                    <div class="sdgs-icon"></div><span class="title">SDGS</span><div id="minimize-sdgs" class="minimize"></div>
+                </div>
+                <div class="content-overlay">
+                    <div class="content-overlay-div">
+                        
+                            <div class="content-location2">
+                                <!-- <i class=""><img src="../static\images\sdgs\desaTanpaKemiskinansmall2.jpg" alt=""></i> -->
+                                <img src="../static\images\sdgs\desaTanpaKemiskinansmall2.jpg" alt="User Image">                                
+                                <p class="content-name">{{perkemplus}}%</p>                                
+                            </div>
+                                                                           
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="widget">
+                <div class="wg-info" id="wg-info"></div>
+                <div class="wg-layers" id="wg-layers"></div>
+                <div class="wg-sdgs" id="wg-sdgs"></div>
+            </div>
+            <div class="focus" id="focus-btn">
+                <div class="focus-btn"></div>
+            </div>
+        
+    </div>
+{% endblock %}

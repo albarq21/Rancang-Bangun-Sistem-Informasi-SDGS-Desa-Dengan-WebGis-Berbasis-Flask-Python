@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="clearfix"></div>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+      <div class="row mt-3">
+        
+        <div class="col-lg-12">
+           <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Input & Managemen Data SHP</h5>
+
+            <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#profile" data-toggle="pill" class="nav-link active"><i class=""></i> <span class="hidden-xs">Input Data SHP</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class=""></i> <span class="hidden-xs">Managemen Data SHP</span></a>
+                </li>                
+            </ul>
+            <div class="tab-content p-3">
+                <div class="tab-pane active" id="profile">
+                    <h5 class="mb-3">Input Data SHP</h5>
+                    <div class="tab-pane active">
+                      <div class="row mt-3">
+                        <div class="col-lg-12">
+                          <div class="card">            
+                            <div class="card-body">
+                              <!-- <h5 class="card-title">Kelengkapan Data SHP</h5> -->
+                        <div class="table-responsive">
+                              <table class="table table-hover">
+                                
+                                  <thead>
+                                    <form action="{{url_for('homepage.input_data_shp')}}" enctype=multipart/form-data method="POST">
+                                      <div class="form-group">
+                                        <label for="input-1">Provinsi</label>
+                                        <input name="prov" {% if id %} value="{{row.Provinsi}}" {% endif %} type="text" class="form-control" id="input-1" placeholder="Masukkan Nama Provinsi">                                        
+                                       </div>
+
+                                       <div class="form-group">
+                                        <label for="input-1">Kota / Kabupaten</label>
+                                        <input name="kotkab" {% if id %} value="{{row.KotaKabupaten}}" {% endif %} type="text" class="form-control" id="input-1" placeholder="Masukkan Nama Kota / Kabupaten">
+                                       </div>
+
+                                       <div class="form-group">
+                                        <label for="input-1">Kecamatan</label>
+                                        <input name="kec" {% if id %} value="{{row.Kecamatan}}" {% endif %} type="text" class="form-control" id="input-1" placeholder="Masukkan Nama Kecamatan">
+                                       </div>
+
+                                       <div class="form-group">
+                                        <label for="input-1">Kelurahan Atau Desa</label>
+                                        <input name="des" {% if id %} value="{{row.des}}" {% endif %} type="text" class="form-control" id="input-1" placeholder="Masukkan Nama Kelurahan Desa">
+                                       </div>
+
+                                      <div class="form-group">
+                                        <label for="input-1">Masukkan File SHP</label>
+                                        <input type="file" class="form-control" name="json" placeholder="JSON">
+                                       </div>
+                                       
+                                      <div class="form-group">
+                                        {% if id %}
+                                          <button value="{{row.id_datapeta}}" name="edit" type="submit" class="btn btn-light btn-round px-5"><i class="fa fa-circle text-light-1 mr-2"></i> Ubah Data</button>
+                                        {% else %}
+                                          <button value="deskpend" name="submit" type="submit" class="btn btn-light btn-round px-5"><i class="fa fa-circle text-light-1 mr-2"></i> Masukkan Data</button>
+                                        {% endif %}
+                                     </div>
+                                    
+                                  </thead>
+                                  <tbody>
+                                    {% for row in data_peta %}
+                                    
+                                    {% endfor %}
+                                    
+                                  </tbody>
+                                </table>
+                            
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div><!--End Row-->
+            
+                    </div>
+                    <!--End Row-->
+
+                </div>
+                <div class="tab-pane" id="messages">
+                  <!-- Pemisah -->
+                  <h5 class="card-title">Managemen Data SHP</h5>
+                  <div class="tab-pane active">
+                    <div class="row mt-3">
+                      <div class="col-lg-12">
+                        <div class="card">            
+                          <div class="card-body">
+                            <h5 class="card-title">Data SHP</h5>
+                      <div class="table-responsive">
+                            <table class="table table-hover">
+                              
+                                <thead>
+                                  <tr>
+                                    <!-- <th scope="col">#</th> -->
+                                    <th scope="col">id</th>
+                                    <th scope="col">Provinsi</th>                                    
+                                    <th scope="col">Kota / Kabupaten</th>
+                                    <th scope="col">Kecamatan</th>
+                                    <th scope="col">Nama File SHP</th>
+                                    <th scope="col">Action</th>
+                                                       
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for row in data_peta %}
+                                  <tr>                                    
+                                      <th scope="row">{{row.id_datapeta}}</th>
+                                      <td>{{row.Provinsi}}</td>                                      
+                                      <td>{{row.KotaKabupaten}}</td>
+                                      <td>{{row.Kecamatan}}</td>
+                                      <td>{{row.Nama_File_SHP}}</td>
+                                                                          
+                                      <td scope="col">
+                                        <form action="{{ url_for('homepage.input_data_shp') }}" method="POST">
+                                        <div class="form-group">
+                                          <button value="{{row.id_datapeta}}" name="ubah" type="submit" class="btn btn-light btn-round px-1"></i>Ubah</button>
+                                          <!-- href"/update/{{row.id}} data-toggle="modal" data-target="#modaledit{{row.id}}"                                       -->
+                                          <button value="{{row.id_datapeta}}" name="hapus" type="submit" class="btn btn-light btn-round px-1"></i>Hapus</button>
+                                        </div></form></td>
+                                      
+                                    
+                                  </tr>
+                                  {% endfor %}
+                                  
+                                </tbody>
+                              </table>
+                          
+                          </div>
+                          </div>
+                        </div>
+                      </div>                           
+                                              
+                  </div>
+                  </div><!--End Row-->                                    
+                </div>
+
+                
+            </div>
+        </div>
+      </div>
+      </div>
+        
+    </div>
+    {% endblock %}

@@ -1,0 +1,606 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="clearfix"></div>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+      <div class="row mt-3">
+        
+        <div class="col-lg-12">
+           <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Hasil Analisis Pengeluaran Perkapita Data Kuisioner Individu</h5>
+            <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#profile" data-toggle="pill" class="nav-link active"><i class="zmdi zmdi-account"></i> <span class="hidden-xs">Data Kuisioner Individu</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="zmdi zmdi-long-arrow-up"></i> <span class="hidden-xs">Hasil Analisis PPP Diatas</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="zmdi zmdi-long-arrow-down"></i> <span class="hidden-xs">Hasil Analisis PPP Dibawah</span></a>
+                </li>
+                
+            </ul>
+            <div class="tab-content p-3">
+                <div class="tab-pane active" id="profile">
+                    <h5 class="mb-3">Data Kuisioner Individu</h5>
+                    <div class="tab-pane active">
+                      <div class="row mt-3">
+                        <div class="col-lg-12">
+                          <div class="card">            
+                            <div class="card-body">
+                              <h5 class="card-title">Deskripsi Individu</h5>
+                        <div class="table-responsive">
+                              <table class="table table-hover">
+                                
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">id</th>
+                                      <th scope="col">Analisis Pengeluaran Perkapita</th>
+                                      <th scope="col">Nomor Kartu Keluarga</th>
+                                      <th scope="col">Jumlah Anggota Keluarga</th>
+                                      <th scope="col">Nama Kepala Keluarga</th>
+                                      <th scope="col">Jenis Kelamin Keluarga</th>
+                                      <th scope="col">NIK</th>
+                                      <th scope="col">Nama Lengkap</th>
+                                      <th scope="col">Jenis Kelamin</th>
+                                      <th scope="col">Tempat Lahir</th>
+                                      <th scope="col">Tanggal Lahir</th>
+                                      <th scope="col">Status Perkawinan</th>
+                                      <th scope="col">Agama</th>
+                                      <th scope="col">Suku</th>
+                                      <th scope="col">Warga Negara</th>
+                                      <th scope="col">Nomor Telp</th>
+                                      <th scope="col">Nomor Wa</th>
+                                      <th scope="col">Email</th>
+                                      <th scope="col">Media Sosial</th>                      
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {% for row in Kuisioner_Individu %}
+                                    <tr>
+                                      <th scope="row">{{row.id}}</th>
+                                      <td>{{row.Analisis_Pengeluaran_Perkapita}}</td>
+                                      <td>{{row.Nomor_KK}}</td>
+                                      <td>{{row.Jumlah_Anggota_Keluarga}}</td>
+                                      <td>{{row.Nama_Kepala_Keluarga}}</td>
+                                      <td>{{row.Jenis_Kelamin_Keluarga}}</td>
+                                      <td>{{row.NIK}}</td>
+                                      <td>{{row.Nama_Lengkap}}</td>
+                                      <td>{{row.Jenis_Kelamin}}</td>
+                                      <td>{{row.Tempat_Lahir}}</td>
+                                      <td>{{row.Tanggal_Lahir}}</td>
+                                      <td>{{row.Status_Perkawinan}}</td>
+                                      <td>{{row.Agama}}</td>
+                                      <td>{{row.Suku}}</td>
+                                      <td>{{row.Warga_Negara}}</td>
+                                      <td>{{row.Nomor_Telp}}</td>
+                                      <td>{{row.Nomor_Wa}}</td>
+                                      <td>{{row.Email}}</td>
+                                      <td>{{row.Media_Sosial}}</td>
+                                      
+                                    </tr>
+                                    {% endfor %}
+                                    
+                                  </tbody>
+                                </table>
+                            
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-12">
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="card-title">Deskripsi Kegiatan</h5>
+                        <div class="table-responsive">
+                              <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">id</th>
+                                    <th scope="col">Kondisi Pekerjaan</th>
+                                    <th scope="col">Pekerjaan Utama</th>
+                                    <th scope="col">Jaminan Sosial Ketenagakerjaan</th>
+                                    <th scope="col">Penghasilan Sebulan Terakhir</th>
+                                    <th scope="col">Pengeluaran Sebulan Terakhir</th>
+                                    <th scope="col">Kepemilikan Rumah</th>
+                                    <th scope="col">Kepemilikan Lahan Luas</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for row in Kuisioner_Individu %}
+                                  <tr>
+                                    <th scope="row">{{row.id}}</th>
+                                    <th>{{row.Kondisi_Pekerjaan}}</th>
+                                    <td>{{row.Pekerjaan_Utama}}</td>
+                                    <td>{{row.Jaminan_Sosial_Ketenagakerjaan}}</td>
+                                    <td>{{row.Penghasilan_Sebulan_Terakhir}}</td>
+                                    <td>{{row.Pengeluaran_Sebulan_Terakhir}}</td>
+                                    <td>{{row.Kepemilikan_Rumah}}</td>
+                                    <td>{{row.Kepemilikan_Lahan_Luas}}</td>
+                                  </tr>
+                                  {% endfor %}
+            
+                                </tbody>
+                              </table>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div><!--End Row-->
+            
+            
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">Deskripsi Kesehatan</h5>
+                      <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">id</th>
+                                    <th scope="col">Penyakit Setahun Terakhir</th>
+                                    <th scope="col">Fasilitas Kesehatan Dikunjungi</th>
+                                    <th scope="col">Jumlah Berapa Kali Fasilitas Kesehatan Dikunjungi</th>
+                                    <th scope="col">Jaminan Kesehatan Asuransi KIS</th>
+                                    <th scope="col">Disabilitas</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for row in Kuisioner_Individu %}
+                                  <tr>
+                                    <th scope="row">{{row.id}}</th>
+                                    <td>{{row.Penyakit_Setahun_Terakhir}}</td>
+                                    <td>{{row.Fasilitas_Kesehatan_Dikunjungi}}</td>
+                                    <td>{{row.Jumlah_Berapa_Kali_Fasilitas_Kesehatan_Dikunjungi}}</td>
+                                    <td>{{row.Jaminan_Kesehatan_Asuransi_KIS}}</td>
+                                    <td>{{row.Disabilitas}}</td>
+                                  </tr>
+                                  {% endfor %}
+                                  
+                                </tbody>
+                              </table>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">Deskripsi Pendidikan</h5>
+                      <div class="table-responsive">
+                            <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th scope="col">id</th>
+                                  <th scope="col">Pendidikan Terakhir</th>
+                                  <th scope="col">Bahasa Digunakan Dirumah</th>
+                                  <th scope="col">Bahasa Digunakan Disekolah Kantor Tempat Kerja</th>
+                                  <th scope="col">Kerja Bakti Setahun_Terakhir</th>
+                                  <th scope="col">Siskamling Setahun Terakhir</th>
+                                  <th scope="col">Pesta Rakyat atau Adat Terakhir Dilaksanakan</th>
+                                  <th scope="col">Menolong warga Mengalami Kematian Setahun Terakhir</th>
+                                  <th scope="col">Menolong warga Mengalami Sakit Setahun Terakhir</th>
+                                  <th scope="col">Menolong warga Mengalami Kecelakaan Setahun Terakhir</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for row in Kuisioner_Individu %}
+                                <tr>
+                                  <th scope="row">{{row.id}}</th>
+                                  <td>{{row.Pendidikan_Terakhir}}</td>
+                                  <td>{{row.Bahasa_Digunakan_Dirumah}}</td>
+                                  <td>{{row.Bahasa_Digunakan_Disekolah_Kantor_Tempat_Kerja}}</td>
+                                  <td>{{row.Kerja_Bakti_Setahun_Terakhir}}</td>
+                                  <td>{{row.Siskamling_Setahun_Terakhir}}</td>
+                                  <td>{{row.Pesta_Rakyat_atau_Adat_Terakhir_Dilaksanakan}}</td>
+                                  <td>{{row.Menolong_warga_Mengalami_Kematian_Setahun_Terakhir}}</td>
+                                  <td>{{row.Menolong_warga_Mengalami_Sakit_Setahun_Terakhir}}</td>
+                                  <td>{{row.Menolong_warga_Mengalami_Kecelakaan_Setahun_Terakhir}}</td>                    
+            
+                                </tr>
+                                {% endfor %}
+                                
+                              </tbody>
+                            </table>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div><!--End Row-->
+
+                </div>
+                <div class="tab-pane" id="messages">
+                  <h5 class="card-title">Hasil Analisis Pengeluaran Perkapita Diatas Kemiskinan</h5>
+                  <div class="tab-pane active">
+                    <div class="row mt-3">
+                      <div class="col-lg-12">
+                        <div class="card">            
+                          <div class="card-body">
+                            <h5 class="card-title">Deskripsi Individu</h5>
+                      <div class="table-responsive">
+                            <table class="table table-hover">
+                              
+                                <thead>
+                                  <tr>
+                                    <th scope="col">id</th>
+                                    <th scope="col">Analisis Pengeluaran Perkapita</th>
+                                    <th scope="col">Nomor Kartu Keluarga</th>
+                                    <th scope="col">Jumlah Anggota Keluarga</th>
+                                    <th scope="col">Nama Kepala Keluarga</th>
+                                    <th scope="col">Jenis Kelamin Keluarga</th>
+                                    <th scope="col">NIK</th>
+                                    <th scope="col">Nama Lengkap</th>
+                                    <th scope="col">Jenis Kelamin</th>
+                                    <th scope="col">Tempat Lahir</th>
+                                    <th scope="col">Tanggal Lahir</th>
+                                    <th scope="col">Status Perkawinan</th>
+                                    <th scope="col">Agama</th>
+                                    <th scope="col">Suku</th>
+                                    <th scope="col">Warga Negara</th>
+                                    <th scope="col">Nomor Telp</th>
+                                    <th scope="col">Nomor Wa</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Media Sosial</th>                      
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for row in Plus %}
+                                  <tr>
+                                    <th scope="row">{{row.id}}</th>
+                                    <td>{{row.Analisis_Pengeluaran_Perkapita}}</td>
+                                    <td>{{row.Nomor_KK}}</td>
+                                    <td>{{row.Jumlah_Anggota_Keluarga}}</td>
+                                    <td>{{row.Nama_Kepala_Keluarga}}</td>
+                                    <td>{{row.Jenis_Kelamin_Keluarga}}</td>
+                                    <td>{{row.NIK}}</td>
+                                    <td>{{row.Nama_Lengkap}}</td>
+                                    <td>{{row.Jenis_Kelamin}}</td>
+                                    <td>{{row.Tempat_Lahir}}</td>
+                                    <td>{{row.Tanggal_Lahir}}</td>
+                                    <td>{{row.Status_Perkawinan}}</td>
+                                    <td>{{row.Agama}}</td>
+                                    <td>{{row.Suku}}</td>
+                                    <td>{{row.Warga_Negara}}</td>
+                                    <td>{{row.Nomor_Telp}}</td>
+                                    <td>{{row.Nomor_Wa}}</td>
+                                    <td>{{row.Email}}</td>
+                                    <td>{{row.Media_Sosial}}</td>
+                                    
+                                  </tr>
+                                  {% endfor %}
+                                  
+                                </tbody>
+                              </table>
+                          
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">Deskripsi Kegiatan</h5>
+                      <div class="table-responsive">
+                            <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th scope="col">id</th>
+                                  <th scope="col">Kondisi Pekerjaan</th>
+                                  <th scope="col">Pekerjaan Utama</th>
+                                  <th scope="col">Jaminan Sosial Ketenagakerjaan</th>
+                                  <th scope="col">Penghasilan Sebulan Terakhir</th>
+                                  <th scope="col">Pengeluaran Sebulan Terakhir</th>
+                                  <th scope="col">Kepemilikan Rumah</th>
+                                  <th scope="col">Kepemilikan Lahan Luas</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for row in Plus %}
+                                <tr>
+                                  <th scope="row">{{row.id}}</th>
+                                  <th>{{row.Kondisi_Pekerjaan}}</th>
+                                  <td>{{row.Pekerjaan_Utama}}</td>
+                                  <td>{{row.Jaminan_Sosial_Ketenagakerjaan}}</td>
+                                  <td>{{row.Penghasilan_Sebulan_Terakhir}}</td>
+                                  <td>{{row.Pengeluaran_Sebulan_Terakhir}}</td>
+                                  <td>{{row.Kepemilikan_Rumah}}</td>
+                                  <td>{{row.Kepemilikan_Lahan_Luas}}</td>
+                                </tr>
+                                {% endfor %}
+          
+                              </tbody>
+                            </table>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!--End Row-->
+          
+          
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Deskripsi Kesehatan</h5>
+                    <div class="table-responsive">
+                          <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">id</th>
+                                  <th scope="col">Penyakit Setahun Terakhir</th>
+                                  <th scope="col">Fasilitas Kesehatan Dikunjungi</th>
+                                  <th scope="col">Jumlah Berapa Kali Fasilitas Kesehatan Dikunjungi</th>
+                                  <th scope="col">Jaminan Kesehatan Asuransi KIS</th>
+                                  <th scope="col">Disabilitas</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for row in Plus %}
+                                <tr>
+                                  <th scope="row">{{row.id}}</th>
+                                  <td>{{row.Penyakit_Setahun_Terakhir}}</td>
+                                  <td>{{row.Fasilitas_Kesehatan_Dikunjungi}}</td>
+                                  <td>{{row.Jumlah_Berapa_Kali_Fasilitas_Kesehatan_Dikunjungi}}</td>
+                                  <td>{{row.Jaminan_Kesehatan_Asuransi_KIS}}</td>
+                                  <td>{{row.Disabilitas}}</td>
+                                </tr>
+                                {% endfor %}
+                                
+                              </tbody>
+                            </table>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Deskripsi Pendidikan</h5>
+                    <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Pendidikan Terakhir</th>
+                                <th scope="col">Bahasa Digunakan Dirumah</th>
+                                <th scope="col">Bahasa Digunakan Disekolah Kantor Tempat Kerja</th>
+                                <th scope="col">Kerja Bakti Setahun_Terakhir</th>
+                                <th scope="col">Siskamling Setahun Terakhir</th>
+                                <th scope="col">Pesta Rakyat atau Adat Terakhir Dilaksanakan</th>
+                                <th scope="col">Menolong warga Mengalami Kematian Setahun Terakhir</th>
+                                <th scope="col">Menolong warga Mengalami Sakit Setahun Terakhir</th>
+                                <th scope="col">Menolong warga Mengalami Kecelakaan Setahun Terakhir</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% for row in Plus %}
+                              <tr>
+                                <th scope="row">{{row.id}}</th>
+                                <td>{{row.Pendidikan_Terakhir}}</td>
+                                <td>{{row.Bahasa_Digunakan_Dirumah}}</td>
+                                <td>{{row.Bahasa_Digunakan_Disekolah_Kantor_Tempat_Kerja}}</td>
+                                <td>{{row.Kerja_Bakti_Setahun_Terakhir}}</td>
+                                <td>{{row.Siskamling_Setahun_Terakhir}}</td>
+                                <td>{{row.Pesta_Rakyat_atau_Adat_Terakhir_Dilaksanakan}}</td>
+                                <td>{{row.Menolong_warga_Mengalami_Kematian_Setahun_Terakhir}}</td>
+                                <td>{{row.Menolong_warga_Mengalami_Sakit_Setahun_Terakhir}}</td>
+                                <td>{{row.Menolong_warga_Mengalami_Kecelakaan_Setahun_Terakhir}}</td>                    
+          
+                              </tr>
+                              {% endfor %}
+                              
+                            </tbody>
+                          </table>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div><!--End Row-->                                    
+                </div>
+
+                <div class="tab-pane" id="edit">
+                  <h5 class="card-title">Hasil Analisis Pengeluaran Perkapita Dibawah Kemiskinan</h5>
+                  <div class="tab-pane active">
+                    <div class="row mt-3">
+                      <div class="col-lg-12">
+                        <div class="card">            
+                          <div class="card-body">
+                            <h5 class="card-title">Deskripsi Individu</h5>
+                      <div class="table-responsive">
+                            <table class="table table-hover">
+                              
+                                <thead>
+                                  <tr>
+                                    <th scope="col">id</th>
+                                    <th scope="col">Analisis Pengeluaran Perkapita</th>
+                                    <th scope="col">Nomor Kartu Keluarga</th>
+                                    <th scope="col">Jumlah Anggota Keluarga</th>
+                                    <th scope="col">Nama Kepala Keluarga</th>
+                                    <th scope="col">Jenis Kelamin Keluarga</th>
+                                    <th scope="col">NIK</th>
+                                    <th scope="col">Nama Lengkap</th>
+                                    <th scope="col">Jenis Kelamin</th>
+                                    <th scope="col">Tempat Lahir</th>
+                                    <th scope="col">Tanggal Lahir</th>
+                                    <th scope="col">Status Perkawinan</th>
+                                    <th scope="col">Agama</th>
+                                    <th scope="col">Suku</th>
+                                    <th scope="col">Warga Negara</th>
+                                    <th scope="col">Nomor Telp</th>
+                                    <th scope="col">Nomor Wa</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Media Sosial</th>                      
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for row in Minus %}
+                                  <tr>
+                                    <th scope="row">{{row.id}}</th>
+                                    <td>{{row.Analisis_Pengeluaran_Perkapita}}</td>
+                                    <td>{{row.Nomor_KK}}</td>
+                                    <td>{{row.Jumlah_Anggota_Keluarga}}</td>
+                                    <td>{{row.Nama_Kepala_Keluarga}}</td>
+                                    <td>{{row.Jenis_Kelamin_Keluarga}}</td>
+                                    <td>{{row.NIK}}</td>
+                                    <td>{{row.Nama_Lengkap}}</td>
+                                    <td>{{row.Jenis_Kelamin}}</td>
+                                    <td>{{row.Tempat_Lahir}}</td>
+                                    <td>{{row.Tanggal_Lahir}}</td>
+                                    <td>{{row.Status_Perkawinan}}</td>
+                                    <td>{{row.Agama}}</td>
+                                    <td>{{row.Suku}}</td>
+                                    <td>{{row.Warga_Negara}}</td>
+                                    <td>{{row.Nomor_Telp}}</td>
+                                    <td>{{row.Nomor_Wa}}</td>
+                                    <td>{{row.Email}}</td>
+                                    <td>{{row.Media_Sosial}}</td>
+                                    
+                                  </tr>
+                                  {% endfor %}
+                                  
+                                </tbody>
+                              </table>
+                          
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">Deskripsi Kegiatan</h5>
+                      <div class="table-responsive">
+                            <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th scope="col">id</th>
+                                  <th scope="col">Kondisi Pekerjaan</th>
+                                  <th scope="col">Pekerjaan Utama</th>
+                                  <th scope="col">Jaminan Sosial Ketenagakerjaan</th>
+                                  <th scope="col">Penghasilan Sebulan Terakhir</th>
+                                  <th scope="col">Pengeluaran Sebulan Terakhir</th>
+                                  <th scope="col">Kepemilikan Rumah</th>
+                                  <th scope="col">Kepemilikan Lahan Luas</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for row in Minus %}
+                                <tr>
+                                  <th scope="row">{{row.id}}</th>
+                                  <th>{{row.Kondisi_Pekerjaan}}</th>
+                                  <td>{{row.Pekerjaan_Utama}}</td>
+                                  <td>{{row.Jaminan_Sosial_Ketenagakerjaan}}</td>
+                                  <td>{{row.Penghasilan_Sebulan_Terakhir}}</td>
+                                  <td>{{row.Pengeluaran_Sebulan_Terakhir}}</td>
+                                  <td>{{row.Kepemilikan_Rumah}}</td>
+                                  <td>{{row.Kepemilikan_Lahan_Luas}}</td>
+                                </tr>
+                                {% endfor %}
+          
+                              </tbody>
+                            </table>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!--End Row-->
+          
+          
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Deskripsi Kesehatan</h5>
+                    <div class="table-responsive">
+                          <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">id</th>
+                                  <th scope="col">Penyakit Setahun Terakhir</th>
+                                  <th scope="col">Fasilitas Kesehatan Dikunjungi</th>
+                                  <th scope="col">Jumlah Berapa Kali Fasilitas Kesehatan Dikunjungi</th>
+                                  <th scope="col">Jaminan Kesehatan Asuransi KIS</th>
+                                  <th scope="col">Disabilitas</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for row in Minus %}
+                                <tr>
+                                  <th scope="row">{{row.id}}</th>
+                                  <td>{{row.Penyakit_Setahun_Terakhir}}</td>
+                                  <td>{{row.Fasilitas_Kesehatan_Dikunjungi}}</td>
+                                  <td>{{row.Jumlah_Berapa_Kali_Fasilitas_Kesehatan_Dikunjungi}}</td>
+                                  <td>{{row.Jaminan_Kesehatan_Asuransi_KIS}}</td>
+                                  <td>{{row.Disabilitas}}</td>
+                                </tr>
+                                {% endfor %}
+                                
+                              </tbody>
+                            </table>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Deskripsi Pendidikan</h5>
+                    <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Pendidikan Terakhir</th>
+                                <th scope="col">Bahasa Digunakan Dirumah</th>
+                                <th scope="col">Bahasa Digunakan Disekolah Kantor Tempat Kerja</th>
+                                <th scope="col">Kerja Bakti Setahun_Terakhir</th>
+                                <th scope="col">Siskamling Setahun Terakhir</th>
+                                <th scope="col">Pesta Rakyat atau Adat Terakhir Dilaksanakan</th>
+                                <th scope="col">Menolong warga Mengalami Kematian Setahun Terakhir</th>
+                                <th scope="col">Menolong warga Mengalami Sakit Setahun Terakhir</th>
+                                <th scope="col">Menolong warga Mengalami Kecelakaan Setahun Terakhir</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% for row in Minus %}
+                              <tr>
+                                <th scope="row">{{row.id}}</th>
+                                <td>{{row.Pendidikan_Terakhir}}</td>
+                                <td>{{row.Bahasa_Digunakan_Dirumah}}</td>
+                                <td>{{row.Bahasa_Digunakan_Disekolah_Kantor_Tempat_Kerja}}</td>
+                                <td>{{row.Kerja_Bakti_Setahun_Terakhir}}</td>
+                                <td>{{row.Siskamling_Setahun_Terakhir}}</td>
+                                <td>{{row.Pesta_Rakyat_atau_Adat_Terakhir_Dilaksanakan}}</td>
+                                <td>{{row.Menolong_warga_Mengalami_Kematian_Setahun_Terakhir}}</td>
+                                <td>{{row.Menolong_warga_Mengalami_Sakit_Setahun_Terakhir}}</td>
+                                <td>{{row.Menolong_warga_Mengalami_Kecelakaan_Setahun_Terakhir}}</td>                    
+          
+                              </tr>
+                              {% endfor %}
+                              
+                            </tbody>
+                          </table>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div><!--End Row-->
+
+
+                    
+                </div>
+            </div>
+        </div>
+      </div>
+      </div>
+        
+    </div>
+    {% endblock %}

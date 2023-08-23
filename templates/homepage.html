@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--====== Title ======-->
+    <title>SDGS DESA</title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="../static/images/images/sdgs55.png" type="image/png">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="../static\css\css/bootstrap.min.css">
+
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="../static\css/css/LineIcons.css">
+
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="../static\css/css/magnific-popup.css">
+
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="../static\css/css/default.css">
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="../static\css/css/style.css">
+
+
+</head>
+{% block body %}{% endblock %}
+
+<body>
+
+    <!--====== PRELOADER PART START ======-->
+
+    <div class="preloader">
+        <div class="loader_34">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--====== PRELOADER ENDS START ======-->
+
+    <!--====== HEADER PART START ======-->
+
+    <header id="home" class="header-area">
+        <div class="navigation fixed-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="{{ url_for('homepage.home') }}">
+                                <img src="../static/images/images/SDGS DESA.png" alt="logo-icon">
+                            </a> <!-- Logo -->
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item active"><a class="page-scroll" href="#home">Beranda</a></li>
+                                    <li class="nav-item"><a class="page-scroll" href="#about">Tentang</a></li>
+                                    <li class="nav-item"><a class="page-scroll" href="#service">Tujuan</a></li>                                    
+                                    <li class="nav-item"><a class="page-scroll" href="http://127.0.0.1:5000/gis/1">Gis</a></li>
+                                    {% if not current_user.is_authenticated %}
+                                    <li class="nav-item"><a class="page-scroll" href="{{ url_for('auth.login') }}">Masuk</a></li>
+                                    <li class="nav-item"><a class="page-scroll" href="{{ url_for('auth.daftar') }}">Daftar</a></li>
+                                    {% endif %}
+                                    {% if current_user.is_authenticated %}
+                                    <li class="nav-item"><a class="page-scroll" href="{{ url_for('homepage.index') }}">Dashboard</a></li>
+                                    {% endif %}
+                                    
+                                    
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- navigation -->
+
+        <div id="parallax" class="header-content d-flex align-items-center">
+            <div class="header-shape shape-one layer" data-depth="0.10">
+                <img src="../static/images/images/banner/shape/shape-1.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-tow layer" data-depth="0.30">
+                <img src="../static/images/images/banner/shape/shape-2.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-three layer" data-depth="0.40">
+                <img src="../static/images/images/banner/shape/shape-3.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-fore layer" data-depth="0.60">
+                <img src="../static/images/images/banner/shape/shape-2.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-five layer" data-depth="0.20">
+                <img src="../static/images/images/banner/shape/shape-1.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-six layer" data-depth="0.15">
+                <img src="../static/images/images/banner/shape/shape-4.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-seven layer" data-depth="0.50">
+                <img src="../static/images/images/banner/shape/shape-5.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-eight layer" data-depth="0.40">
+                <img src="../static/images/images/banner/shape/shape-3.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-nine layer" data-depth="0.20">
+                <img src="../static/images/images/banner/shape/shape-6.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-ten layer" data-depth="0.30">
+                <img src="../static/images/images/banner/shape/shape-3.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-5 col-lg-6">
+                        <div class="header-content-right">
+                            <h4 class="sub-title">Selamat Datang</h4>
+                            <h1 class="title">SDGS DESA</h1>
+                            <p>Percepatan Pencapaian Tujuan Pembangunan Nasional Berkelanjutan</p>                            
+                        </div> <!-- header content right -->
+                    </div>
+                    <div class="col-lg-6 offset-xl-1">
+                        <div class="header-image d-none d-lg-block">
+                            <img src="../static/images\sdgs\sdgs5.png" alt="hero">
+                        </div> <!-- header image -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-social">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="header-social-icon">
+                                <ul>
+                                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                                    <li><a href="#"><i class="lni-behance-original"></i></a></li>
+                                    <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
+                                </ul>
+                            </div> <!-- header social -->
+                        </div>
+                    </div> <!-- row -->
+                </div> <!-- container -->
+            </div> <!-- header social -->
+        </div> <!-- header content -->
+    </header>
+
+    <!--====== HEADER PART ENDS ======-->
+
+    <!--====== ABOUT PART START ======-->
+
+    <section id="about" class="about-area pt-125 pb-130">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center">
+                        <h2 class="title">Apa Itu Sdgs Desa?</h2>
+                        <p>SDGs Desa adalah pembangunan total atas desa. Seluruh aspek pembangunan yang digagas PBB sejak pendirian hingga kini diterapkan, seluruh warga desa harus menjadi pemanfaatnya, tidak ada yang terlewat. Dan, kemajuan tiada akan berhenti, melainkan berkelanjutan bagi generasi-generasi mendatang. Mewujudkan desa tanpa kemiskinan, tanpa kelaparan, layak air bersih dan sanitasi, berenergi bersih dan terbarukan, infrastruktur dan inovasi sesuai kebutuhan. Warganya sehat dan sejahtera, menerima pendidikan berkualitas, perempuan berpartisipasi, menumbuhkan ekonomi merata, konsumsi dan produksi sadar lingkungan. Tinggal di permukiman yang aman dan nyaman, tanggap perubahan iklim, peduli lingkungan laut dan darat, damai berkeadilan, bermitra membangun desa.</p>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+        </div>  
+    </section>
+
+    <!--====== ABOUT PART ENDS ======-->
+
+    <!--====== SERVICES PART START ======-->
+
+    <section id="service" class="services-area gray-bg pt-125 pb-130">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center pb-30">
+                        <h2 class="title">Tujuan Dan Sasaran Sdgs Desa</h2>
+                        <p>Merujuk dari Peraturan Menteri Desa, Pembangunan Daerah Tertinggal dan Transmigrasi Nomor 13 Tahun 2020 tentang Prioritas Penggunaan Dana Desa Tahun 2021, setidaknya ada 18 tujuan dan sasaran pembangunan melalui SDGs Desa tersebut, yaitu :</p>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-service text-center mt-30">
+                        <div class="service-icon">
+                            <i class=""><img src="../static\images\sdgs\desaTanpaKemiskinan.jpg" alt=""></i>
+                        </div>
+                        <div class="service-content">                            
+                        </div>
+                    </div> <!-- single service -->
+
+        
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-service text-center mt-30">
+                        <div class="service-icon">
+                            <i class=""><img src="../static\images\sdgs\blur\2.jpg" alt=""></i>
+                        </div>
+                        <div class="service-content">                            
+                        </div>
+                    </div> <!-- single service -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-service text-center mt-30">
+                        <div class="service-icon">
+                            <i class=""><img src="../static\images\sdgs\blur\3.jpg" alt=""></i>
+                        </div>
+                        <div class="service-content">
+                            
+                        </div>
+                    </div> <!-- single service -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-service text-center mt-30">
+                        <div class="service-icon">
+                            <i class=""><img src="../static\images\sdgs\blur\4.jpg" alt=""></i>
+                        </div>
+                        <div class="service-content">
+                            
+                        </div>
+                    </div> <!-- single service -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-service text-center mt-30">
+                        <div class="service-icon">
+                            <i class=""><img src="../static\images\sdgs\blur\5.jpg" alt=""></i>
+                        </div>
+                        <div class="service-content">
+                            
+                        </div>
+                    </div> <!-- single service -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-service text-center mt-30">
+                        <div class="service-icon">
+                            <i class=""><img src="../static\images\sdgs\blur\6.jpg" alt=""></i>
+                        </div>
+                        <div class="service-content">
+                            
+                        </div>
+                    </div> <!-- single service -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-service text-center mt-30">
+                        <div class="service-icon">
+                            <i class=""><img src="../static\images\sdgs\blur\7.jpg" alt=""></i>
+                        </div>
+                        <div class="service-content">
+                            
+                        </div>
+                    </div> <!-- single service -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-service text-center mt-30">
+                        <div class="service-icon">
+                            <i class=""><img src="../static\images\sdgs\blur\8.jpg" alt=""></i>
+                        </div>
+                        <div class="service-content">
+                            
+                        </div>
+                    </div> <!-- single service -->
+                </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-service text-center mt-30">
+                            <div class="service-icon">
+                                <i class=""><img src="../static\images\sdgs\blur\9.jpg" alt=""></i>
+                            </div>
+                            <div class="service-content">
+                                
+                            </div>
+                        </div> <!-- single service -->
+                </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-service text-center mt-30">
+                            <div class="service-icon">
+                                <i class=""><img src="../static\images\sdgs\blur\10.jpg" alt=""></i>
+                            </div>
+                            <div class="service-content">                               
+                            </div>
+                        </div> <!-- single service -->
+                </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-service text-center mt-30">
+                            <div class="service-icon">
+                                <i class=""><img src="../static\images\sdgs\blur\11.jpg" alt=""></i>
+                            </div>
+                            <div class="service-content">                                
+                            </div>
+                </div> <!-- single service -->
+                </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-service text-center mt-30">
+                            <div class="service-icon">
+                                <i class=""><img src="../static\images\sdgs\blur\12.jpg" alt=""></i>
+                            </div>
+                            <div class="service-content">                                
+                            </div>
+                        </div> <!-- single service -->
+                </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-service text-center mt-30">
+                            <div class="service-icon">
+                                <i class=""><img src="../static\images\sdgs\blur\13.jpg" alt=""></i>
+                            </div>
+                            <div class="service-content">                                
+                            </div>
+                        </div> <!-- single service -->
+                </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-service text-center mt-30">
+                            <div class="service-icon">
+                                <i class=""><img src="../static\images\sdgs\blur\14.jpg" alt=""></i>
+                            </div>
+                            <div class="service-content">                                
+                            </div>
+                        </div> <!-- single service -->
+                </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-service text-center mt-30">
+                            <div class="service-icon">
+                                <i class=""><img src="../static\images\sdgs\blur\15.jpg" alt=""></i>
+                            </div>
+                            <div class="service-content">                                
+                            </div>
+                        </div> <!-- single service -->
+                </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-service text-center mt-30">
+                            <div class="service-icon">
+                                <i class=""><img src="../static\images\sdgs\blur\16.jpg" alt=""></i>
+                            </div>
+                            <div class="service-content">
+                                
+                            </div>
+                </div> <!-- single service --></div>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-service text-center mt-30">
+                        <div class="service-icon">
+                            <i class=""><img src="../static\images\sdgs\blur\17.jpg" alt=""></i>
+                        </div>
+                        <div class="service-content">                            
+                        </div>
+                </div> <!-- single service --></div>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-service text-center mt-30">
+                        <div class="service-icon">
+                            <i class=""><img src="../static\images\sdgs\blur\18.png" alt=""></i>
+                        </div>
+                        <div class="service-content">                            
+                        </div>
+                </div> <!-- single service -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    
+    <!--====== FOOTER PART START ======-->
+
+    <footer id="footer" class="footer-area">
+        <div class="footer-widget pt-130 pb-130">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                         <!-- footer content -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer widget -->
+        <div class="footer-copyright pb-20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright-text text-center pt-20">
+                            <p>Copyright © 2022. Template Crafted by <a href="https://uideck.com" rel="nofollow">UIdeck</a></p>
+                        </div> <!-- copyright text -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer widget -->
+    </footer>
+
+    <!--====== FOOTER PART ENDS ======-->
+
+    <!--====== BACK TOP TOP PART START ======-->
+
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+
+    <!--====== BACK TOP TOP PART ENDS ======-->
+
+
+
+
+
+
+
+    <!--====== jquery js ======-->
+    <script src="../static/js/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="../static/js/js/vendor/jquery-1.12.4.min.js"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="../static/js/js/bootstrap.min.js"></script>
+    <script src="../static/js/js/popper.min.js"></script>
+
+    <!--====== Magnific Popup js ======-->
+    <script src="../static/js/js/jquery.magnific-popup.min.js"></script>
+
+    <!--====== Parallax js ======-->
+    <script src="../static/js/js/parallax.min.js"></script>
+
+    <!--====== Counter Up js ======-->
+    <script src="../static/js/js/waypoints.min.js"></script>
+    <script src="../static/js/js/jquery.counterup.min.js"></script>
+
+
+    <!--====== Appear js ======-->
+    <script src="../static/js/js/jquery.appear.min.js"></script>
+
+    <!--====== Scrolling js ======-->
+    <script src="../static/js/js/scrolling-nav.js"></script>
+    <script src="../static/js/js/jquery.easing.min.js"></script>
+
+
+    <!--====== Main js ======-->
+    <script src="../static/js/js/main.js"></script>
+
+</body>
+
+</html>

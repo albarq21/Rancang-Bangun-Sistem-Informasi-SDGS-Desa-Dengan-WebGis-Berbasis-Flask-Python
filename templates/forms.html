@@ -1,0 +1,366 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="clearfix"></div>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+        
+
+      <div class="row mt-3">
+        
+
+        <div class="col-lg-12">
+           <div class="card">
+            <div class="card-body">
+
+            <h3 class="card-title">Kuisioner Individu</h3>
+          <a class="add-input-data-btn" href="" data-toggle="modal"  data-target="#mymodal">Pilih Formulir</a>
+          
+            <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#deskindiv" data-toggle="pill" class="nav-link active"><i class="icon-user"></i> <span class="hidden-xs">Deskripsi Individu</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#deskjob" data-toggle="pill" class="nav-link"><i class="zmdi zmdi-balance-wallet"></i> <span class="hidden-xs">Deskripsi Pekerjaan</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#deskkes" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Deskripsi Kesehatan</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#deskpend" data-toggle="pill" class="nav-link"><i class="zmdi zmdi-assignment"></i> <span class="hidden-xs">Deskripsi Pendidikan</span></a>
+                </li>
+            </ul>
+            <div class="tab-content p-3">
+                <div class="tab-pane active" id="deskindiv">
+                    <div class="card-body">                       
+                        <form action="{{ url_for('homepage.forms') }}" method="POST" id="deskindiv">
+                        <div class="form-group">
+                         <label for="input-1">Nomor Kartu Keluarga</label>
+                         <input name="NoKK" {% if id %} value="{{row.Nomor_KK}}" {% endif %} type="number" class="form-control" id="input-1" placeholder="Masukkan No. KK">
+                        </div>
+                        <div class="form-group">
+                          <label for="input-2">Jumlah Anggota Keluarga Atau Tanggungan</label>
+                          <input name="JumlahAK" {% if id %} value="{{row.Jumlah_Anggota_Keluarga}}" {% endif %} type="number" class="form-control" id="input-2" placeholder="Masukkan Jumlah Anggota Keluarga">
+                         </div>
+                         <div class="form-group">
+                          <label for="input-3">Nama Kepala Keluarga</label>
+                          <input name="NamaKK" {% if id %} value="{{row.Nama_Kepala_Keluarga}}" {% endif %} type="text" class="form-control" id="input-3" placeholder="Masukkan Nama Kepala Keluarga">
+                         </div>
+                         <div class="form-group">
+                          <label for="input-2">Jenis Kelamin Kepala Keluarga</label>
+                          <td><select name="JKKK" {% if id %} value="{{row.Jenis_Kelamin_Keluarga}}" {% endif %} class="form-control" id="input-4" placeholder="Pilih Jenis Kelamin" >
+                            <option>Laki-Laki</option>              
+                            <option>Perempuan</option>
+                            </select></td>
+                         </div>
+                        <div class="form-group">
+                         <label for="input-2">NIK</label>
+                         <input name="NIK" {% if id %} value="{{row.NIK}}" {% endif %} type="number" class="form-control" id="input-2" placeholder="Masukkan NIK">
+                        </div>
+                        <div class="form-group">
+                         <label for="input-3">Nama Lengkap</label>
+                         <input name="Namalkp" {% if id %} value="{{row.Nama_Lengkap}}" {% endif %} type="text" class="form-control" id="input-3" placeholder="Masukkan Nama Lengkap">
+                        </div>
+                        <div class="form-group">
+                         <label for="input-4">Jenis kelamin</label>
+                         <div>
+                           <td><select name="JK" {% if id %} value="{{row.Jenis_Kelamin}}" {% endif %} class="form-control" id="input-4" placeholder="Pilih Jenis Kelamin" >
+                           <option>Laki-Laki</option>              
+                           <option>Perempuan</option>
+                           </select></td>
+                         </div>
+                        </div>
+                        <div class="form-group">
+                         <label for="input-5">Tempat & Tanggal lahir</label>            
+                         <input name="tempatlhr" {% if id %} value="{{row.Tempat_Lahir}}" {% endif %} type="text" class="form-control" id="input-5" placeholder="Masukkan Tempat lahir">
+                         <label for="input-6"></label>
+                         <input name="tgllhr" {% if id %} value="{{row.Tanggal_Lahir}}" {% endif %} type="date" class="form-control" id="input-6" placeholder="Masukkan Tanggal Lahir">  
+                        </div> 
+                        <!-- tambahan alamat -->
+                        <div class="form-group">
+                          <label for="input-5">Alamat Tempat Tinggal</label>            
+                          <input name="alamatttg" {% if id %} value="{{row.Alamat_Tempat_Tinggal}}" {% endif %} type="text" class="form-control" id="input-5" placeholder="Masukkan Alamat Tempat Tinggal">
+                        </div>
+
+                        <div class="form-group">
+                         <label for="input-7">Provinsi</label>
+                         <div>
+                           <td><select name="provinsi" {% if id %} value="{{row.Provinsi}}" {% endif %} class="form-control" id="input-7" placeholder="Masukkan Provinsi">
+                            {% for row in Provinsi %} 
+                             <option value="{{row.Provinsi}}">{{row.Provinsi}}</option>              
+                             {% endfor %}
+                             </select></td>
+                           </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="input-7">Kabupaten</label>
+                          <div>
+                            <td><select name="kotkab" {% if id %} value="{{row.KotaKabupaten}}" {% endif %} class="form-control" id="input-7" placeholder="Masukkan Kota Kabupaten">
+                             {% for row in Provinsi %} 
+                              <option value="{{row.KotaKabupaten}}">{{row.KotaKabupaten}}</option>              
+                              {% endfor %}
+                              </select></td>
+                            </div>
+                         </div>
+
+                         <div class="form-group">
+                          <label for="input-7">Kecamatan</label>
+                          <div>
+                            <td><select name="kec" {% if id %} value="{{row.Kecamatan}}" {% endif %} class="form-control" id="input-7" placeholder="Masukkan Kecamatan">
+                             {% for row in Provinsi %} 
+                              <option value="{{row.Kecamatan}}">{{row.Kecamatan}}</option>              
+                              {% endfor %}
+                              </select></td>
+                            </div>
+                         </div>
+
+                         <div class="form-group">
+                          <label for="input-7">Desa</label>
+                          <div>
+                            <td><select name="keldes" {% if id %} value="{{row.Desa}}" {% endif %} class="form-control" id="input-7" placeholder="Masukkan Kecamatan">
+                             {% for row in Provinsi %} 
+                              <option value="{{row.Desa}}">{{row.Desa}}</option>              
+                              {% endfor %}
+                              </select></td>
+                            </div>
+                         </div>
+                         
+                        <div class="form-group">
+                         <label for="input-7">Status pernikahan</label>
+                         <div>
+                           <td><select name="Skwn" {% if id %} value="{{row.Status_Perkawinan}}" {% endif %} class="form-control" id="input-7" placeholder="Pilih Status pernikahan">
+                             <option>Kawin</option>              
+                             <option>Tidak Kawin</option>
+                             <option>Duda/Janda</option>
+                             </select></td>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                         <label for="input-8">Agama</label>
+                         
+                         <div>
+                           <div>
+                           <td><select name="Agama" {% if id %} value="{{row.Agama}}" {% endif %} class="form-control" id="input-8" placeholder="Pilih Agama">
+                           <option>Islam</option>              
+                           <option>Kristen</option>
+                           <option>Hindu</option>
+                           <option>Budda</option>
+                           <option>Konghucu</option>
+                           <option>Lainnya</option>
+                           </select></td>       
+                           </div>
+                         </div>
+                        </div>
+                        <div class="form-group">
+                         <label for="input-9">Suku Bangsa</label>
+                         <input name="Suku" {% if id %} value="{{row.Suku}}" {% endif %} type="text" class="form-control" id="input-9" placeholder="Masukkan Suku Bangsa">
+                        </div>
+                        <div class="form-group">
+                         <label for="input-10">Warganegara</label>
+                         <div></div>
+                         <td><select name="warganeg" {% if id %} value="{{row.Warga_Negara}}" {% endif %} class="form-control" id="input-10" placeholder="Pilih Warganegara">
+                         <option>WNI</option>
+                           
+                         <option>WNA</option> 
+                         </select>
+                         </td>           
+                        </div>
+                        <div class="form-group">
+                         <label for="input-11">Nomor Telp/HP</label>
+                         <input name="notelp" {% if id %} value="{{row.Nomor_Telp}}" {% endif %} type="number" class="form-control" id="input-11" placeholder="Masukkan Nomor Telp/HP">
+                        </div>
+                        <div class="form-group">
+                         <label for="input-12">Nomor WA</label>
+                         <input name="nowa" {% if id %} value="{{row.Nomor_Wa}}" {% endif %} type="number" class="form-control" id="input-12" placeholder="Masukkan Nomor WA">
+                        </div>
+                        <div class="form-group">
+                         <label for="input-13">Alamat Email</label>
+                         <input name="email" {% if id %} value="{{row.Email}}" {% endif %} type="email" class="form-control" id="input-13" placeholder="Masukkan Alamat Email">
+                        </div>
+                        <div class="form-group">
+                         <label for="input-14">Akun Media Sosial</label>
+                         <input name="akunmedsos" {% if id %} value="{{row.Media_Sosial}}" {% endif %} type="text" class="form-control" id="input-14" placeholder="Masukkan Akun Media Sosial">
+                        </div>
+                        
+                        
+                      </div>
+                    
+                </div>
+                <div class="tab-pane" id="deskjob">
+                    <div class="card-body">
+                        
+                        <div class="form-group">
+                         <label for="input-15">Kondisi pekerjaan</label>
+                         <td><select name="konjob" {% if id %} value="{{row.Kondisi_Pekerjaan}}" {% endif %} class="form-control" id="input-15" placeholder="Pilih Kondisi Pekerjaan">
+                           <option>Bersekolah</option>              
+                           <option>Ibu Rumah Tangga</option>
+                           <option>Tidak Bekerja</option>
+                           <option>Sedang Mencari Pekerjaan</option>
+                           <option>Bekerja</option>
+                           </select></td>
+                        </div>
+           
+                        <div class="form-group">
+                         <label for="input-16">Pekerjaan utama</label>
+                         <td><select name="jobut" {% if id %} value="{{row.Pekerjaan_Utama}}" {% endif %} class="form-control" id="input-16" placeholder="Pilih Pekerjaan Utama">
+                           <option>Petani Pemilik Lahan</option>              
+                           <option>Petani Penyewa</option>
+                           <option>Buruh Tani</option>
+                           <option>Nelayan Pemilik Kapal/Perahu</option>
+                           <option>Nelayan Penyewa Kapal/Perahu</option>
+                           <option>Buruh Nelayan</option>
+                           <option>Guru</option>
+                           <option>Guru Agama</option>
+                           <option>Pedagang</option>
+                           <option>Pengolahan/Industri</option>
+                           <option>PNS</option>
+                           <option>TNI</option>
+                           <option>Perangkat Desa</option>
+                           <option>Pegawai Kantor Desa</option>
+                           <option>TKI </option>
+                           <option>Lainnya</option>
+                           </select></td>
+                        </div>
+                        <div class="form-group">
+                         <label for="input-17">Jaminan sosial ketenagakerjaan</label>
+                         <td><select name="bpjs" {% if id %} value="{{row.Jaminan_Sosial_Ketenagakerjaan}}" {% endif %} class="form-control" id="input-17" placeholder="Pilih Jaminan sosial ketenagakerjaan">
+                           <option>Peserta</option>              
+                           <option>Bukan Peserta</option>
+                           </select></td>
+                        </div>
+                        <div class="form-group">
+                         <label for="input-18">Penghasilan sebulan terakhir dari (Rp)</label>
+                         <input name="peng1bln" {% if id %} value="{{row.Penghasilan_Sebulan_Terakhir}}" {% endif %} type="number" class="form-control" id="input-18" placeholder="Masukkan Penghasilan Sebulan Terakhir">
+                        </div>
+                        <div class="form-group">
+                          <label for="input-18">Pengeluaran sebulan terakhir dari (Rp)</label>
+                          <input name="penlu1bln" {% if id %} value="{{row.Pengeluaran_Sebulan_Terakhir}}" {% endif %} type="number" class="form-control" id="input-18" placeholder="Masukkan Pengeluaran Sebulan Terakhir">
+                         </div>
+                         <div class="form-group">
+                          <label for="input-3">Aset</label>
+                          
+                         </div>
+                         <div class="form-group">
+                          <label for="input-17">Kepemilikan Rumah</label>
+                          <td><select name="keprmh" {% if id %} value="{{row.Kepemilikan_Rumah}}" {% endif %} class="form-control" id="input-17" placeholder="Pilih Kepemilikan Rumah">
+                            <option>Pribadi</option>              
+                            <option>Orang Tua</option>
+                            <option>Sewa/Kontrak</option>
+                            </select></td>
+                          </div>
+                         <div class="form-group">
+                          <label for="input-3">Kepemilikan Lahan (Luas)</label>
+                          <input name="keplhn" {% if id %} value="{{row.Kepemilikan_Lahan_Luas}}" {% endif %} type="number" class="form-control" id="input-18" placeholder="Masukkan Jumlah Luas (Luas)">
+                         </div>
+                                   
+                      </div>
+                  </div>
+                
+                <div class="tab-pane" id="deskkes">
+                        <div class="card-body">
+                            <!-- <form action="{{ url_for('homepage.forms') }}" method="POST"> -->
+                            <div class="form-group">
+                             <label for="input-19">Penyakit Yang Diderita Setahun Terakhir</label>
+                             <input name="penyakit" {% if id %} value="{{row.Penyakit_Setahun_Terakhir}}" {% endif %} type="text" class="form-control" id="input-19" placeholder="Masukkan Penyakit Yang Diderita Setahun Terakhir">
+                            </div>
+                            <div class="form-group">
+                             <label for="input-20">Berapa kali fasilitas kesehatan berikut didatangi setahun terakhir untuk pengobatan/perawatan</label>
+                             <input name="faskes"  {% if id %} value="{{row.Fasilitas_Kesehatan_Dikunjungi}}" {% endif %}type="text" class="form-control" id="input-20" placeholder="Masukkan Fasilitas Kesehatan Yang Didatangi Setahun terakhir">
+                             <label for="input-21"></label>
+                             <input name="jmlhfaskes" {% if id %} value="{{row.Jumlah_Berapa_Kali_Fasilitas_Kesehatan_Dikunjungi}}" {% endif %} type="number" class="form-control" id="input-21" placeholder="Masukkan Berapa kali Didatangi Setahun terakhir">
+                            </div>
+                            <div class="form-group">
+                             <label for="input-22">Jaminan sosial kesehatan/Kartu Indonesia Sehat (KIS)</label>
+                             <td><select name="kis" {% if id %} value="{{row.Jaminan_Kesehatan_Asuransi_KIS}}" {% endif %} class="form-control" id="input-22" placeholder="Pilih Jaminan Sosial Kesehatan">
+                              <option>Peserta</option>              
+                              <option>Bukan Peserta</option>
+                              </select></td>
+                            </div>
+                            <div class="form-group">
+                             <label for="input-23">Disabilitas</label>
+                             <td><select name="disabil" {% if id %} value="{{row.Disabilitas}}" {% endif %} class="form-control" id="input-23" placeholder="Pilih Jaminan Sosial Kesehatan">
+                              <option>Bukan Disabilitas</option>              
+                              <option>Tunanetra (Buta)</option>
+                              <option>Tunarungu (Tuli)</option>
+                              <option>Tunawicara (Bisu)</option>
+                              <option>Tunarungu–Wicara (Tuli–Bisu) </option>
+                              <option>Tunadaksa (Cacat Tubuh)</option>
+                              <option>Tunagrahita (Cacat Mental, Keterbelakangan Mental)</option>
+                              <option>Tunalaras (Eks–Sakit Jiwa, Gangguan Mengendalikan Emosi dan Kontrol Sosial)</option>
+                              <option>Cacat Eks–Sakit Kusta: Pernah Sakit Kusta dan Dinyatakan Sembuh Oleh Dokter</option>
+                              <option>Cacat Ganda (Cacat Fisik–Mental)</option>
+                              <option>Dipasung</option>
+                              </select></td>
+                            </div>                         
+                          </div>
+                </div>
+
+                <div class="tab-pane" id="deskpend">
+                    
+                        <div class="card-body">
+                            <!-- <form action="{{ url_for('homepage.forms') }}" method="POST"> -->
+                            <div class="form-group">
+                             <label for="input-24">Pendidikan tertinggi yang ditamatkan</label>
+                             <td><select name="pendidk" {% if id %} value="{{row.Pendidikan_Terakhir}}" {% endif %} class="form-control" id="input-24" placeholder="Pilih Jaminan Sosial Kesehatan">
+                               <option>Tidak Sekolah </option>              
+                               <option>SD dan Sederajat </option>
+                               <option>SMP dan Sederajat</option>
+                               <option>SMA dan Sederajat </option>
+                               <option>Diploma 1-3</option>
+                               <option>S1 dan Sederajat</option>
+                               <option>S2 dan Sederajat</option>
+                               <option>S3 dan Sederajat</option>
+                               <option>Pesantren, Seminari, Wihara dan Sejenisnya</option>
+                               <option>Lainnya</option>
+                               </select></td>
+                            </div>
+                            <div class="form-group">
+                             <label for="input-25">Bahasa digunakan di rumah dan permukiman</label>
+                             <input name="bhs" {% if id %} value="{{row.Bahasa_Digunakan_Dirumah}}" {% endif %} type="text" class="form-control form-control-rounded" id="input-25" placeholder="Masukkan Bahasa Digunakan">
+                            </div>
+                            <div class="form-group">
+                             <label for="input-26">Bahasa digunakan di lembaga formal (sekolah, tempat kerja)</label>
+                             <input name="bhsskl" {% if id %} value="{{row.Bahasa_Digunakan_Disekolah_Kantor_Tempat_Kerja}}" {% endif %} type="text" class="form-control form-control-rounded" id="input-26" placeholder="Masukkan Bahasa Digunakan Dilembaga formal">
+                            </div>
+                            <div class="form-group">
+                             <label for="input-27">Kerja bakti setahun terakhir</label>
+                             <input name="krjbkti" {% if id %} value="{{row.Kerja_Bakti_Setahun_Terakhir}}" {% endif %} type="number" class="form-control form-control-rounded" id="input-27" placeholder="Masukkan Jumlah Kerja Bakti Setahun Terakhir">
+                            </div>
+                            <div class="form-group">
+                             <label for="input-28">Siskamling setahun terakhir</label>
+                             <input name="siskaeee" {% if id %} value="{{row.Siskamling_Setahun_Terakhir}}" {% endif %} type="number" class="form-control form-control-rounded" id="input-28" placeholder="Masukkan Jumlah Siskamling Setahun Terakhir">
+                            </div>
+                            <div class="form-group">
+                             <label for="input-29">Pesta rakyat/adat setahun terakhir</label>
+                             <input name="pestaryt" {% if id %} value="{{row.Pesta_Rakyat_atau_Adat_Terakhir_Dilaksanakan}}" {% endif %} type="number" class="form-control form-control-rounded" id="input-29" placeholder="Masukkan Jumlah Pesta Rakyat/Adat Setahun Terakhir">
+                            </div>
+                            <div class="form-group">
+                             <label for="input-30">Menolong warga yang mengalami kematian keluarga setahun terakhir</label>
+                             <input name="tlngdet" {% if id %} value="{{row.Menolong_warga_Mengalami_Kematian_Setahun_Terakhir}}" {% endif %} type="number" class="form-control form-control-rounded" id="input-30" placeholder="Masukkan Jumlah">
+                            </div>
+                            <div class="form-group">
+                             <label for="input-31">Menolong warga yang sedang sakit setahun terakhir</label>
+                             <input name="tlngskt" {% if id %} value="{{row.Menolong_warga_Mengalami_Sakit_Setahun_Terakhir}}" {% endif %} type="number" class="form-control form-control-rounded" id="input-31" placeholder="Masukkan Jumlah">
+                            </div>
+                            <div class="form-group">
+                             <label for="input-32">Menolong warga yang kecelakaan setahun terakhir</label>
+                             <input name="tlnglaka" {% if id %} value="{{row.Menolong_warga_Mengalami_Kecelakaan_Setahun_Terakhir}}" {% endif %} type="number" class="form-control form-control-rounded" id="input-32" placeholder="Masukkan Jumlah">
+                            </div>                            
+                            <div class="form-group">
+                              {% if id %}
+                                <button value="{{row.id}}" name="edit" type="submit" class="btn btn-light btn-round px-5"><i class="fa fa-circle text-light-1 mr-2"></i> Ubah Data</button>
+                              {% else %}
+                                <button value="deskpend" name="submit" type="submit" class="btn btn-light btn-round px-5"><i class="fa fa-circle text-light-1 mr-2"></i> Masukkan Data</button>
+                              {% endif %}
+                           </div>
+                           </form>
+                          </div>
+            </div>
+        </div>
+      </div>
+      </div>
+        
+    </div>
+    {% endblock %}
